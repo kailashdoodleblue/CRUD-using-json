@@ -16,7 +16,14 @@ app.get('/students/:ID', (req, res) => {
 
     let data = getdatafunction()
     let items = data.find((items) => items.id === parseInt(req.params.ID))
+    if(items!=null)
+    {
     res.send(items)
+    }
+    else
+    {
+        res.send(JSON.stringify([{"Data":"No data found"}]))
+    }
 })
 
 app.post('/students', (req, res) => {
